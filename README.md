@@ -1,3 +1,3 @@
 # shanksalg
 
-usage: java Shank <a> <b> <p>
+usage: java Shank arg_a arg_b arg_p
