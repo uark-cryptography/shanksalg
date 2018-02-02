@@ -1,10 +1,36 @@
 import java.util.*;
+import java.math.BigInteger;
 
 class Shank{
-
-	void solve(double a, double b, double p){
-		//System.out.println("a" + a + " b" + b +" p" 	+ p);
 		
+	ArrayList<BigInteger> list1 = new ArrayList<>();
+	ArrayList<BigInteger> list2 = new ArrayList<>();
+
+
+	BigInteger sqrt(BigInteger n) {
+		BigInteger a = BigInteger.ONE;
+		BigInteger b = n.shiftRight(5).add(BigInteger.valueOf(8));
+		while (b.compareTo(a) >= 0) {
+			BigInteger mid = a.add(b).shiftRight(1);
+			if (mid.multiply(mid).compareTo(n) > 0) {
+				b = mid.subtract(BigInteger.ONE);
+			} else {
+				a = mid.add(BigInteger.ONE);
+			}
+		}
+		return a.subtract(BigInteger.ONE);
+	}
+	//JochemKuijpers/BigInteger_sqrt.java
+
+	void solve(BigInteger a, BigInteger b, BigInteger p, BigInteger n){
+		
+		for(BigInteger i = n; i.compareTo(BigInteger.ZERO) > 0; i = i.subtract(BigInteger.ONE)){
+			list1.add(a.modPow(i,p));
+		}
+		
+		for(BigInteger i = n; i.compareTo(BigInteger.ZERO) > 0; i = i.subtract(BigInteger.ONE)){
+			System.out.println(list1);
+		}		
 		
 	}
 
@@ -18,24 +44,14 @@ class Shank{
 		Shank s = new Shank();
 		
 		//a^x = b mod p
-		double a = Double.parseDouble(args[0]);
-		double b = Double.parseDouble(args[1]);
-		double p = Double.parseDouble(args[2]);
+		BigInteger a = new BigInteger(args[0]);
+		BigInteger b = new BigInteger(args[1]);
+		BigInteger p = new BigInteger(args[2]);
 		
-		double n = Math.ceil(Math.sqrt(p));
+		BigInteger n = s.sqrt(p);
 		//System.out.println("n " + n);
 		
-		ArrayList<Double> list1 = new ArrayList<>();
-		ArrayList<Double> list2 = new ArrayList<>();
 		
-		for(int i = 0; i < n; i++){
-			list1.add(Math.pow(a,i)%p);
-		}
-		
-		for(int i = 0; i < n; i++){
-			System.out.println(list1);
-		}
-		
-		s.solve(a,b,p);
+		s.solve(a,b,p,n);
 	}
 }
