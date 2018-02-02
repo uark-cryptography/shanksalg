@@ -24,13 +24,19 @@ class Shank{
 
 	void solve(BigInteger a, BigInteger b, BigInteger p, BigInteger n){
 		
+		//List1   e, g, g2, g3, . . . , gn  
 		for(BigInteger i = n; i.compareTo(BigInteger.ZERO) > 0; i = i.subtract(BigInteger.ONE)){
 			list1.add(a.modPow(i,p));
-		}
-		
+		}		
 		for(BigInteger i = n; i.compareTo(BigInteger.ZERO) > 0; i = i.subtract(BigInteger.ONE)){
 			System.out.println(list1);
 		}		
+		
+		//TODO: List2
+		
+		
+		//TODO: compare both lists for match
+		//TODO: x = list1 + list2*n
 		
 	}
 
@@ -49,8 +55,7 @@ class Shank{
 		BigInteger p = new BigInteger(args[2]);
 		
 		BigInteger n = s.sqrt(p);
-		//System.out.println("n " + n);
-		
+		//System.out.println("n " + n);	
 		
 		s.solve(a,b,p,n);
 	}
