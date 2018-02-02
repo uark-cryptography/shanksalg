@@ -32,9 +32,7 @@ class Shank{
 			System.out.println(list1);
 		}		
 		
-		//TODO: List2
-		
-		
+		//TODO: List2 h*g^(-in) mod p		
 		//TODO: compare both lists for match
 		//TODO: x = list1 + list2*n
 		
