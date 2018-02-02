@@ -28,9 +28,8 @@ class Shank{
 		for(BigInteger i = n; i.compareTo(BigInteger.ZERO) > 0; i = i.subtract(BigInteger.ONE)){
 			list1.add(a.modPow(i,p));
 		}		
-		for(BigInteger i = n; i.compareTo(BigInteger.ZERO) > 0; i = i.subtract(BigInteger.ONE)){
-			System.out.println(list1);
-		}		
+		System.out.println(list1);
+			
 		
 		//TODO: List2 h*g^(-in) mod p		
 		//TODO: compare both lists for match
